@@ -11,7 +11,7 @@
 - create first.cpp => write code
 - open terminal enter cmd: g++ -o first.exe first.cpp => enter cmd: .\first.exe
 ```
-### Link learn OPP C++
+### Link learn OOP C++
 ```
 - http://www.staff.city.ac.uk/c.kloukinas/cpp/Session%2002/lab2-solutions.pdf
 ```
