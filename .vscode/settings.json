@@ -6,6 +6,8 @@
         "memory": "cpp",
         "new": "cpp",
         "numeric": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "functional": "cpp",
+        "iostream": "cpp"
     }
 }
