@@ -1,7 +1,7 @@
-#include <iostream>
-
-using namespace std;
-int main() {
-    cout << "hello" << "\n";
-    return 0;
+//compiler cmd: g++ -fmodules-ts test.cpp main.cpp
+import test;
+int main (void)
+{
+  hello("I'm Nghia");
+  return 0;
 }
