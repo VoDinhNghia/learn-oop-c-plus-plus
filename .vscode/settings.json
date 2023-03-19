@@ -8,6 +8,7 @@
         "numeric": "cpp",
         "system_error": "cpp",
         "functional": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "string": "cpp"
     }
 }
