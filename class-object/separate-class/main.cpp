@@ -1,9 +1,13 @@
+// compiler cmd: g++ -fmodules-ts .\student.cpp .\main.cpp
+#include "student.h"
 #include <iostream>
-#include "Num.h"
+
 using namespace std;
-int main()
-{
-    Num n(35);
-    cout << n.getNum() << endl;
-    return 0;
+
+int main() {
+    Student st1 {"Nghia", 10};
+    Student st2 {"test", -1};
+
+    cout << "Student: " << st1 << endl;
+    cout << "Student: " << st2 << endl;
 }

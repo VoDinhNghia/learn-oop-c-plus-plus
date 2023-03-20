@@ -9,6 +9,7 @@
         "system_error": "cpp",
         "functional": "cpp",
         "iostream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "iosfwd": "cpp"
     }
 }
