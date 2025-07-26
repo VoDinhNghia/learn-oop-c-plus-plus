@@ -1,37 +1,9 @@
 #include <iostream>
+#include "method.cpp"
+#include "show_result.cpp"
 using namespace std;
-class Calculator {
-    float numberA;
-    float numberB;
 
-    public:
-        Calculator(float numberA, float numberB) {
-            this->numberA = numberA;
-            this->numberB = numberB;
-        }
-
-        float add() {
-            return this->numberA + this->numberB;
-        }
-        
-        float sub() {
-            return this->numberA - this->numberB;
-        }
-
-        float multi() {
-            return this->numberA * this->numberB;
-        }
-
-        float div() {
-            return this->numberA / this->numberB;
-        }
-};
-
-void showResult(string name, float result) {
-    cout << "result " << name << ": " << result << endl;
-}
-
-int main() { 
+void runProgram() {
     int n;   
     do {
         float numberA;
@@ -69,6 +41,4 @@ int main() {
         cin >> n;
         n = n;
     } while (n > 1);
-    
-    return 0;
 }
