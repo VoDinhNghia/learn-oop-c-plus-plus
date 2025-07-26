@@ -3,22 +3,18 @@
 #include <string>
 using namespace std;
 
-int main() {
-    ifstream inputFile("file.txt");
+void readFileTxt() {
+    ifstream inputFile("output.txt");
     string line;
 
-    if (inputFile.is_open())
-    {
+    if (inputFile.is_open()) {
         while (getline(inputFile, line))
         {
             cout << line << endl;
         }
         inputFile.close();
     }
-    else
-    {
+    else {
         cout << "File can't be opened." << endl;
     }
-
-    return 0;
 }
