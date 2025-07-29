@@ -1,15 +1,17 @@
 #include <iostream>
 #include <fstream>
 #include "student.cpp"
+#include "constant.cpp"
 using namespace std;
 
 class Services
 {
 public:
+    Constants cons;
     void addStudentToTxt(Students s)
     {
         ofstream outputFile;
-        outputFile.open("student.txt", ios::app);
+        outputFile.open(cons.file.txtAddress, ios::app);
         if (outputFile.is_open())
         {
             outputFile << s.getName() << " " << s.getAge() << " " << s.getCode() << " " << s.getMajor() << endl;
@@ -24,7 +26,7 @@ public:
 
     void findStudentWithName(string name)
     {
-        ifstream inputFile("student.txt");
+        ifstream inputFile(cons.file.txtAddress);
         if (!inputFile.is_open())
         {
             std::cerr << "Error opening file!" << std::endl;
