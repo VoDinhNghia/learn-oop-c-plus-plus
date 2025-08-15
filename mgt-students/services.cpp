@@ -35,7 +35,7 @@ public:
         }
         string line;
         int currentLineNumber = 0;
-        string result = "Not found";
+        string result = name + " not found in file " + cons.file.txtAddress;
         while (getline(inputFile, line))
         {
             currentLineNumber++;

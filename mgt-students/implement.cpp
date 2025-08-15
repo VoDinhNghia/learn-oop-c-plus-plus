@@ -2,6 +2,7 @@
 #include "student.cpp"
 #include "method.cpp"
 using namespace std;
+#include <list>
 
 class ImplementProgram
 {
@@ -37,7 +38,7 @@ public:
         int age = entryAge();
         string code = entryCode();
         string major = entryMajor();
-        
+
         Students newStudent = Students(name, age, code, major);
         Methods mt;
 
@@ -45,9 +46,12 @@ public:
         newStudent.showStudentInfo();
 
         string searchName;
-        cout << "Entry name to find in find txt: " << endl;
+        cout << "Entry name to find in file txt: " << endl;
         cin >> searchName;
         string findResult = mt.findStudentByName(searchName);
         cout << findResult << endl;
+
+        cout << "list all students: " << endl;
+        mt.showAllStudents();
     };
 };
