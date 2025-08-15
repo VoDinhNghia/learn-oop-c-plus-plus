@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <list>
 #include "student.cpp"
 #include "constant.cpp"
 using namespace std;
@@ -16,7 +17,7 @@ public:
         {
             outputFile << s.getName() << " " << s.getAge() << " " << s.getCode() << " " << s.getMajor() << endl;
             outputFile.close();
-            cout << "Data written to student.txt successfully." << endl;
+            cout << "Data written to " << cons.file.txtAddress << " successfully." << endl;
         }
         else
         {
@@ -24,23 +25,39 @@ public:
         }
     };
 
-    void findStudentWithName(string name)
+    string findStudentWithName(string name)
     {
         ifstream inputFile(cons.file.txtAddress);
         if (!inputFile.is_open())
         {
-            std::cerr << "Error opening file!" << std::endl;
+            string errs = "Error opening file!";
+            return errs;
         }
         string line;
         int currentLineNumber = 0;
+        string result = "Not found";
         while (getline(inputFile, line))
         {
             currentLineNumber++;
             if (line.find(name) != string::npos)
             {
-                cout << "Found '" << name << "' in line " << currentLineNumber << ": " << line << endl;
+                result = "Found '" + name + "' in line " + to_string(currentLineNumber) + ": " + line;
+                break;
             }
         }
         inputFile.close();
+        return result;
+    };
+
+    list<string> getAllStudents()
+    {
+        list<string> arr;
+        string lineOfFile;
+        ifstream myReadFile(cons.file.txtAddress);
+        while (getline(myReadFile, lineOfFile))
+        {
+            arr.push_back(lineOfFile);
+        }
+        return arr;
     };
 };

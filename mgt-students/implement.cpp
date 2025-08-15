@@ -37,13 +37,17 @@ public:
         int age = entryAge();
         string code = entryCode();
         string major = entryMajor();
+        
         Students newStudent = Students(name, age, code, major);
         Methods mt;
+
         mt.addStudent(newStudent);
         newStudent.showStudentInfo();
+
         string searchName;
         cout << "Entry name to find in find txt: " << endl;
         cin >> searchName;
-        mt.findStudentByName(searchName);
+        string findResult = mt.findStudentByName(searchName);
+        cout << findResult << endl;
     };
 };

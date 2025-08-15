@@ -1,4 +1,5 @@
 #include <iostream>
+#include <list>
 #include "services.cpp"
 #include "student.cpp"
 using namespace std;
@@ -12,8 +13,15 @@ public:
         service.addStudentToTxt(s);
     };
 
-    void findStudentByName(string name)
+    string findStudentByName(string name)
     {
-        service.findStudentWithName(name);
+        string result = service.findStudentWithName(name);
+        return result;
+    };
+
+    list<string> getAll() 
+    {
+        list<string> lists = service.getAllStudents();
+        return lists;
     };
 };
