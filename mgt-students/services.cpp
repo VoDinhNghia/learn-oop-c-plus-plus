@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <list>
 #include "student.cpp"
 #include "constant.cpp"
@@ -59,5 +60,30 @@ public:
             arr.push_back(lineOfFile);
         }
         return arr;
+    };
+
+    string splitStudentInfoBySpace(string str)
+    {
+        list<string> listInfoStudent;
+        istringstream iss(str);
+        string token;
+        while (iss >> token)
+        {
+            listInfoStudent.push_back(token);
+        }
+        string name = listInfoStudent.front();
+        return name;
+    }
+
+    list<string> getNameStudents()
+    {
+        list<string> nameList;
+        string lineOfFile;
+        ifstream myReadFile(cons.file.txtAddress);
+        while (getline(myReadFile, lineOfFile))
+        {
+            nameList.push_back(splitStudentInfoBySpace(lineOfFile));
+        }
+        return nameList;
     };
 };

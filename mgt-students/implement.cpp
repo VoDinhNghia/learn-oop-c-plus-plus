@@ -49,16 +49,28 @@ private:
         cout << findResult << endl;
     };
 
-    void showAllStudents()
+    void displayList(list<string> lists)
     {
-        cout << "list all students: " << endl;
-        list<string> lists = service.getAllStudents();
         for (int i = 0; i < lists.size(); i++)
         {
             list<string>::iterator it = lists.begin();
             advance(it, i);
             cout << i << ": " << *it << endl;
         };
+    };
+
+    void showAllStudents()
+    {
+        cout << "list all students: " << endl;
+        list<string> lists = service.getAllStudents();
+        displayList(lists);
+    };
+
+    void showAllNameStudents()
+    {
+        cout << "list name students: " << endl;
+        list<string> lists = service.getNameStudents();
+        displayList(lists);
     };
 
 public:
@@ -72,5 +84,6 @@ public:
         addAndShowStudent(newStudent);
         searchStudentByName();
         showAllStudents();
+        showAllNameStudents();
     };
 };
