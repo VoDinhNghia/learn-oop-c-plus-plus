@@ -1,11 +1,12 @@
 #include <iostream>
 #include "student.cpp"
-#include "method.cpp"
+#include "services.cpp"
 using namespace std;
 #include <list>
 
 class ImplementProgram
 {
+Services service;
 private:
     string entryName() {
         string name;
@@ -31,6 +32,35 @@ private:
         cin >> major;
         return major;
     };
+
+    void addAndShowStudent(Students newStudent)
+    {
+        service.addStudentToTxt(newStudent);
+        string newStudentInfo = newStudent.showStudentInfo();
+        cout << "New student: " << newStudentInfo << endl;
+    };
+
+    void searchStudentByName()
+    {
+        string searchName;
+        cout << "Entry name to find in file txt: " << endl;
+        cin >> searchName;
+        string findResult = service.findStudentWithName(searchName);
+        cout << findResult << endl;
+    };
+
+    void showAllStudents()
+    {
+        cout << "list all students: " << endl;
+        list<string> lists = service.getAllStudents();
+        for (int i = 0; i < lists.size(); i++)
+        {
+            list<string>::iterator it = lists.begin();
+            advance(it, i);
+            cout << i << ": " << *it << endl;
+        };
+    };
+
 public:
     void runProgram()
     {
@@ -38,20 +68,9 @@ public:
         int age = entryAge();
         string code = entryCode();
         string major = entryMajor();
-
         Students newStudent = Students(name, age, code, major);
-        Methods mt;
-
-        mt.addStudent(newStudent);
-        newStudent.showStudentInfo();
-
-        string searchName;
-        cout << "Entry name to find in file txt: " << endl;
-        cin >> searchName;
-        string findResult = mt.findStudentByName(searchName);
-        cout << findResult << endl;
-
-        cout << "list all students: " << endl;
-        mt.showAllStudents();
+        addAndShowStudent(newStudent);
+        searchStudentByName();
+        showAllStudents();
     };
 };

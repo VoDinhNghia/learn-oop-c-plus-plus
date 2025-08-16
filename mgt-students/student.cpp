@@ -37,8 +37,9 @@ public:
         return this->major;
     };
 
-    void showStudentInfo()
+    string showStudentInfo()
     {
-        cout << this->name << " " << this->age << " " << this->code << " " << this->major << endl;
+        string studentInfo = this->name + " " + to_string(this->age) + " " + this->code + " " + this->major;
+        return studentInfo;
     };
 };
