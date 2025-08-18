@@ -3,10 +3,13 @@
 #include "services.cpp"
 using namespace std;
 #include <list>
+#include <vector>
+#include "utils.cpp"
 
 class ImplementProgram
 {
 Services service;
+Utils util;
 private:
     string entryName() {
         string name;
@@ -49,32 +52,18 @@ private:
         cout << findResult << endl;
     };
 
-    void displayList(list<string> lists)
-    {
-        // for (int i = 0; i < lists.size(); i++)
-        // {
-        //     list<string>::iterator it = lists.begin();
-        //     advance(it, i);
-        //     cout << i << ": " << *it << endl;
-        // };
-        for (string line : lists)
-        {
-            cout << line << endl;
-        }
-    };
-
     void showAllStudents()
     {
         cout << "list all students: " << endl;
         list<string> lists = service.getAllStudents();
-        displayList(lists);
+        util.displayList(lists);
     };
 
     void showAllNameStudents()
     {
         cout << "list name students: " << endl;
-        list<string> lists = service.getNameStudents();
-        displayList(lists);
+        vector<string> lists = service.getNameStudents();
+        util.displayVectorName(lists);
     };
 
 public:

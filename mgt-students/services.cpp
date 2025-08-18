@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <list>
+#include <vector>
 #include "student.cpp"
 #include "constant.cpp"
 using namespace std;
@@ -75,9 +76,9 @@ public:
         return name;
     }
 
-    list<string> getNameStudents()
+    vector<string> getNameStudents()
     {
-        list<string> nameList;
+        vector<string> nameList;
         string lineOfFile;
         ifstream myReadFile(cons.file.txtAddress);
         while (getline(myReadFile, lineOfFile))
