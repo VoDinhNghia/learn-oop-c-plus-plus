@@ -51,12 +51,16 @@ private:
 
     void displayList(list<string> lists)
     {
-        for (int i = 0; i < lists.size(); i++)
+        // for (int i = 0; i < lists.size(); i++)
+        // {
+        //     list<string>::iterator it = lists.begin();
+        //     advance(it, i);
+        //     cout << i << ": " << *it << endl;
+        // };
+        for (string line : lists)
         {
-            list<string>::iterator it = lists.begin();
-            advance(it, i);
-            cout << i << ": " << *it << endl;
-        };
+            cout << line << endl;
+        }
     };
 
     void showAllStudents()
